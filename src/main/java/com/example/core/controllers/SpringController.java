@@ -1,6 +1,6 @@
-package com.example.demo.controllers;
+package com.example.core.controllers;
 
-import com.example.demo.interfaces.Coach;
+import com.example.core.interfaces.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;

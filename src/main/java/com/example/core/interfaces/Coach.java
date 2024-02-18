@@ -1,4 +1,4 @@
-package com.example.demo.interfaces;
+package com.example.core.interfaces;
 
 public interface Coach {
 

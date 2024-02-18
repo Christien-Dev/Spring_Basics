@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.example.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class DependencyInjectionCore {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(DependencyInjectionCore.class, args);
 	}
 
 }

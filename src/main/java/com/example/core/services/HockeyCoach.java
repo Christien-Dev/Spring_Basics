@@ -1,6 +1,6 @@
-package com.example.demo.services;
+package com.example.core.services;
 
-import com.example.demo.interfaces.Coach;
+import com.example.core.interfaces.Coach;
 import org.springframework.stereotype.Component;
 
 @Component
