@@ -1,10 +1,16 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.2'	// enables dependency management provided by spring-boot-dependencies, deps will be set at 3.2.2 in BOM
-}													// reacts to different plugins being applied to the project
 
-apply plugin: 'io.spring.dependency-management'		// control the versions of your project’s direct and transitive dependencies and will honour any exclusions declared in the poms of your project’s dependencies
-													// spring-boot plugin above reacts to this plugin by importing the spring-boot-dependencies BOM
+	// enables dependency management provided by spring-boot-dependencies, deps will be set at 3.2.2 in BOM
+	// reacts to different plugins being applied to the project
+	id 'org.springframework.boot' version '3.2.2'
+
+}
+// control the versions of your project’s direct and transitive dependencies and will honour any exclusions declared in the poms
+// of your project’s dependencies spring-boot plugin above reacts to this plugin by importing the spring-boot-dependencies BOM
+apply plugin:'io.spring.dependency-management'
+
+
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
@@ -17,15 +23,15 @@ repositories {
 }
 
 dependencies {
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	// https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
-//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	implementation 'org.springframework.boot:spring-boot-starter-web'		//Basic Spring Boot framework and boot libraries [core]
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'	//Uses JPA(jakarta-persistence-api) to store data in a relational DB [hibernatejpa]
 
 
-//	runtimeOnly 'com.mysql:mysql-connector-j'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'com.mysql:mysql-connector-j:8.3.0'						//Initializing our Database Driver and connecting to mySql [hibernatejpa]
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'	//standard spring boot testing dependency
 
 }
 

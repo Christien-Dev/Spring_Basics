@@ -14,15 +14,18 @@ public class SpringController {
     Coach coach;
     Coach coachTwo;
 
+    Coach basketBallCoach;
+
 //    @Autowired  //Enable Setter Dependency Injection for the Coach
 //    public void setCoach(@Qualifier("hockeyCoach") Coach coach) {   //Qualifier used if more than one potential bean exists for injection
 //        this.coach = coach;
 //    }
 
     @Autowired  //Enable Constructor Dependency Injection for the Coach
-    SpringController(@Qualifier("soccerCoach") Coach coach, @Qualifier("soccerCoach") Coach coachTwo){        //Used the soccerCoach implementation
+    SpringController(@Qualifier("soccerCoach") Coach coach, @Qualifier("soccerCoach") Coach coachTwo, Coach basketBallCoach){        //Used the soccerCoach implementation
         this.coach = coach;
         this.coachTwo = coachTwo;
+        this.basketBallCoach = basketBallCoach;
     }
 
     @RequestMapping(value = "/dailyWorkout", method = RequestMethod.GET)
@@ -33,5 +36,10 @@ public class SpringController {
     @RequestMapping(value = "/getScope", method = RequestMethod.GET)
     String getCoachScope(){
         return "Comparing coaches: coach == coachTwo? " + (coach == coachTwo ? "true, singleton scope enabled" : "false, prototype scope enabled");
+    }
+
+    @RequestMapping(value = "/basketBall", method = RequestMethod.GET)
+    String getBasketBallCoach(){
+        return basketBallCoach.dailyWorkout();
     }
 }
