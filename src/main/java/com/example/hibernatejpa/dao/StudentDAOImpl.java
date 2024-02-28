@@ -2,6 +2,7 @@ package com.example.hibernatejpa.dao;
 
 import com.example.hibernatejpa.domains.Student;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -47,5 +48,19 @@ public class StudentDAOImpl implements StudentDAO{
         TypedQuery<Student> query = entityManager.createQuery("FROM Student where lastName=:lastName", Student.class);
         query.setParameter("lastName", lastName);
         return query.getResultList();
+    }
+
+    @Override
+    @Transactional
+    public void update(Student student) {
+        entityManager.merge(student);
+    }
+
+    @Override
+    @Transactional
+    public int updateAllStudents(String lastName) {
+        Query query = entityManager.createQuery("UPDATE Student SET lastName=:lastName");
+        query.setParameter("lastName", lastName);
+        return query.executeUpdate();
     }
 }

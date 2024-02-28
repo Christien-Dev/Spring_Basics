@@ -33,6 +33,10 @@ public class CrudDemoApplication {
 
 			queryForStudentsByLastName(studentDAO);
 
+			updateStudent(studentDAO);
+
+			updateAllStudents(studentDAO);
+
 		};
 	}
 
@@ -84,6 +88,34 @@ public class CrudDemoApplication {
 		System.out.println("\nGetting Student(s) with lastname: " + lastName);
 		List<Student> studentList = studentDAO.findByLastName(lastName);
 		studentList.forEach(System.out::println);
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+
+		int studentId = 1;
+
+		System.out.println("\nGetting Student with id: " + studentId);
+		Student student = studentDAO.findById(studentId);
+
+		student.setFirstname("any");
+
+		System.out.println("Updating Student...");
+		studentDAO.update(student);
+
+		System.out.println("Student Updated: "+ student);
+
+
+	}
+
+	private void updateAllStudents(StudentDAO studentDAO) {
+
+		String lastname = "TEST";
+
+		System.out.println("\nUpdating all students lastName to : " + lastname);
+
+		int rowsUpdated = studentDAO.updateAllStudents(lastname);
+
+		System.out.println("Number of Students Updated: "+ rowsUpdated);
 	}
 
 }
