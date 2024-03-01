@@ -37,6 +37,10 @@ public class CrudDemoApplication {
 
 			updateAllStudents(studentDAO);
 
+			deleteStudentById(studentDAO);
+
+			deleteStudentsByFirstName(studentDAO);
+
 		};
 	}
 
@@ -59,13 +63,15 @@ public class CrudDemoApplication {
 
 		System.out.println("\nCreating new multiple Students");
 		Student student1 = new Student("Foo", "Barz", "foobarz@gmail.com");
-		Student student2 = new Student("Inte", "Jerz", "intejerz@gmail.com");
-		Student student3 = new Student("Bonita", "AppleBum", "bonitaapplebum@gmail.com");
+		Student student2 = new Student("Foo", "Baz", "foobaz@gmail.com");
+		Student student3 = new Student("Inte", "Jerz", "intejerz@gmail.com");
+		Student student4 = new Student("Bonita", "AppleBum", "bonitaapplebum@gmail.com");
 
 		//Saving Multiple Students
 		studentDAO.save(student1);
 		studentDAO.save(student2);
 		studentDAO.save(student3);
+		studentDAO.save(student4);
 	}
 
 	private void readStudent(StudentDAO studentDAO) {
@@ -118,4 +124,23 @@ public class CrudDemoApplication {
 		System.out.println("Number of Students Updated: "+ rowsUpdated);
 	}
 
+	private void deleteStudentById(StudentDAO studentDAO) {
+		int studentId = 2;
+
+		System.out.println("\nDeleting student with ID: " + studentId);
+
+		studentDAO.deleteStudents(studentId);
+
+		System.out.println("Student Deleted");
+	}
+
+	private void deleteStudentsByFirstName(StudentDAO studentDAO) {
+		String firstName = "TEST";
+
+		System.out.println("\nDeleting student(s) with firstName: " + firstName);
+
+		int rowsDeleted = studentDAO.deleteStudentsByFirstName(firstName);
+
+		System.out.println("Deleted " + rowsDeleted + " Students");
+	}
 }

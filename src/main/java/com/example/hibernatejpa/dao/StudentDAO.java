@@ -20,5 +20,9 @@ public interface StudentDAO {
 
     int updateAllStudents(String lastName);
 
+    void deleteStudents(int studentId);
+
+    int deleteStudentsByFirstName(String firstName);
+
 
 }
