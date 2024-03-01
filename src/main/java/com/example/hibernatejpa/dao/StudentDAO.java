@@ -24,5 +24,7 @@ public interface StudentDAO {
 
     int deleteStudentsByFirstName(String firstName);
 
+    int deleteAllStudents();
+
 
 }
