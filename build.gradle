@@ -24,11 +24,11 @@ repositories {
 
 dependencies {
 
-	implementation 'org.springframework.boot:spring-boot-starter-web'		//Basic Spring Boot framework and boot libraries [core, restcrudapi]
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'	//Uses JPA(jakarta-persistence-api) to store data in a relational DB [hibernatejpa]
+	implementation 'org.springframework.boot:spring-boot-starter-web'		//Basic Spring Boot framework and boot libraries [core, simplerestapi, restcrudapi]
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'	//Uses JPA(jakarta-persistence-api) to store data in a relational DB [hibernatejpa, restcrudapi]
 
 
-	implementation 'com.mysql:mysql-connector-j:8.3.0'						//Initializing our Database Driver and connecting to mySql [hibernatejpa]
+	implementation 'com.mysql:mysql-connector-j:8.3.0'						//Initializing our Database Driver and connecting to mySql [hibernatejpa, restcrudapi]
 
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'	//standard spring boot testing dependency
